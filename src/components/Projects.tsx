@@ -12,7 +12,7 @@ const projects = [
     tags: ["NLP", "Image Classification", "Prediction", "QR Encoding"],
     github: "https://github.com/Dare-marvel/AarogyaData-Enhancing-Healthcare-Access",
     demo: "https://black-pearl-dashboard.demo.com",
-    bgPosition : "top"
+    bgPosition: "top"
   },
   {
     id: 2,
@@ -22,17 +22,17 @@ const projects = [
     tags: ["Web Crawlers", "Data Analysis", "Inventory and Price Analytics"],
     github: "https://github.com/Dare-marvel/inventory_management",
     demo: "https://rohit-sangrah.netlify.app/",
-    bgPosition : "50% 33%"
+    bgPosition: "50% 33%"
   },
   {
     id: 3,
-    title: "Code-Red Tempest of Timelines - A Story Based Game",
+    title: "Code Red - A Story Based Game",
     description: "Developed an interactive 3D model of a bomb with functional buttons and customizable wire colors, enhancing user engagement through realistic simulation features, and created a human vs. AI Connect 4 game utilizing the Minimax algorithm.Built with React.js, NodesJS, Redux, React Three Fiber,React three drei, React-terminal",
     image: "../src/assets/Projects/CodeRed.jpg",
     tags: ["Minimax Algorithm", "3D", "Game", "AI"],
     github: "https://github.com/Hitstar53/Code-Red-Tempest-Of-Timelines",
     demo: "https://treasure-map.demo.com",
-    bgPosition : "50% 30%"
+    bgPosition: "50% 30%"
   },
   {
     id: 4,
@@ -42,7 +42,7 @@ const projects = [
     tags: ["Multiplayer game", "Realtime updates", "Socket.io"],
     github: "https://github.com/Dare-marvel/business-game",
     demo: "https://pirate-weather.demo.com",
-    bgPosition : "50% 30%"
+    bgPosition: "50% 30%"
   }
 ];
 
@@ -62,7 +62,14 @@ const Projects = () => {
         {/* Treasure chest image */}
         <div className="flex justify-center mb-12">
           <div className="relative w-64 h-40 bg-contain bg-center bg-no-repeat"
-            style={{ backgroundImage: "url('../src/assets/davy-chest-closed.png')" }}>
+            style={{ backgroundImage: "url('../src/assets/davy-chest-closed.png')" }}
+            onClick={(e) => {
+              e.currentTarget.style.backgroundImage =
+                e.currentTarget.style.backgroundImage.includes("davy-chest-closed.png")
+                  ? "url('../src/assets/davy-chest-open.png')"
+                  : "url('../src/assets/davy-chest-closed.png')";
+            }}
+          >
             {/* <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
               <Skull className="h-10 w-10 text-pirate-gold" />
             </div> */}

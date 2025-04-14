@@ -121,7 +121,7 @@ const Contact = () => {
 
         <div className="pirate-section max-w-2xl mx-auto relative">
           {/* Bottle decoration */}
-          <div className="absolute -top-16 right-10 w-16 h-32 bg-contain bg-no-repeat"
+          <div className="absolute -top-8 right-10 w-16 h-32 bg-contain bg-no-repeat"
             style={{ backgroundImage: `url(${rumBottle})` }}>
           </div>
           
@@ -188,8 +188,9 @@ const Contact = () => {
                 type="submit"
                 className="pirate-button group"
               >
-                <span>Send via Carrier Pigeon</span>
-                <Send className="absolute right-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-pirate-gold opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <span>Throw the bottle in the Ocean   
+                {/* <Send className="absolute right-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-pirate-gold opacity-0 group-hover:opacity-100 transition-opacity duration-300" /> */}
+                </span>
               </button>
             </div>
           </form>

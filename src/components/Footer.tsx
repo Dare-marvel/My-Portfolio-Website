@@ -45,7 +45,7 @@ const Footer = () => {
       </div>
       
       {/* Ship decoration */}
-      <div className="absolute bottom-0 right-0 w-32 h-24 bg-contain bg-bottom bg-no-repeat opacity-50"
+      <div className="absolute bottom-0 right-0 w-32 h-24 bg-contain bg-bottom bg-no-repeat opacity-100"
         style={{ backgroundImage: `url(${compass})` }}>
       </div>
     </footer>
