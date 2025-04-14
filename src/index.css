@@ -1,0 +1,116 @@
+
+/* @import url('https://fonts.googleapis.com/css2?family=Pirata+One&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 34 44% 92%;
+    --foreground: 20 36% 25%;
+
+    --card: 30 33% 88%;
+    --card-foreground: 20 36% 25%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 205 75% 22%;
+    --primary-foreground: 30 33% 88%;
+
+    --secondary: 43 65% 70%;
+    --secondary-foreground: 24 30% 17%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 43 74% 52%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 20 36% 25% / 15%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 43 74% 52%;
+
+    --radius: 0.5rem;
+  }
+
+  body {
+    @apply bg-pirate-parchment text-pirate-wood-dark font-scroll;
+    background-image: url('../public/assets/parchment.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-pirate text-pirate-wood-dark;
+  }
+}
+
+@layer components {
+  .pirate-section {
+    @apply relative my-5 px-6 py-8 rounded-lg border-2 border-pirate-wood-dark/30 backdrop-blur-sm;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    background-color: rgba(224, 201, 166, 0.8);
+  }
+
+  .pirate-button {
+    @apply relative px-6 py-3 bg-pirate-wood rounded-md text-pirate-parchment font-pirate text-lg shadow-md hover:bg-pirate-wood-dark transition-all duration-300 border-2 border-pirate-gold/50 overflow-hidden;
+  }
+
+  .pirate-input {
+    @apply bg-pirate-parchment/80 border-2 border-pirate-wood-dark/30 rounded-md px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-pirate-gold transition duration-300;
+  }
+
+  .treasure-item {
+    @apply relative bg-pirate-parchment-dark/70 p-6 rounded-lg border-2 border-pirate-gold/30 hover:border-pirate-gold transition-all duration-300 shadow-lg hover:shadow-xl;
+  }
+
+  .wooden-nav-item {
+    @apply relative px-4 py-2 text-pirate-parchment font-pirate text-lg hover:text-pirate-gold transition duration-300;
+  }
+
+  .scroll-text {
+    @apply font-scroll text-pirate-wood-dark leading-relaxed;
+  }
+
+  .fog {
+    @apply fixed top-0 left-0 w-full h-full pointer-events-none z-10 opacity-0;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.3), transparent);
+    animation: fog-roll 60s linear infinite;
+  }
+}
+
+.rum-progress-container {
+  @apply relative h-32 w-14 bg-transparent overflow-hidden;
+}
+
+.rum-bottle {
+  @apply absolute bottom-0 left-0 w-full;
+  background-image: url('../public/assets/rum-bottle.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.rum-level {
+  @apply absolute bottom-0 left-0 w-full bg-amber-600/70;
+  transition: height 1s ease-out;
+}
+
+.ocean-bg {
+  background-image: url('../public/assets/Ocean.webp');
+  background-size: cover;
+  background-position: center;
+}
+
+.wood-bg {
+  background-image: url('../public/assets/black-wood.png');
+  background-size: cover;
+  background-position: center;
+}
