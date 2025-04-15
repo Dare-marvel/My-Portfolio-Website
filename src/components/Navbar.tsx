@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Anchor, Compass, MapPin, Skull, FlaskConical, Scroll, MessageSquare } from 'lucide-react';
+import medallion from '../assets/medallion.png'
 
 const Navbar = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -30,7 +31,7 @@ const Navbar = () => {
     <nav className={`fixed top-0 left-0 right-0 wood-bg z-50 transition-all duration-300 ${scrollPosition > 50 ? 'py-2 shadow-lg' : 'py-4'}`}>
       <div className="container mx-auto flex justify-between items-center px-4">
         <div className="text-pirate-parchment font-pirate text-2xl flex items-center gap-2">
-        <img src="../src/assets/medallion.png" alt="Captain's Logo" className="h-14 w-14 text-pirate-gold animate-sway" />
+        <img src={medallion} alt="Captain's Logo" className="h-14 w-14 text-pirate-gold animate-sway" />
           <span className="hidden sm:inline">Captain's Portfolio</span>
         </div>
         

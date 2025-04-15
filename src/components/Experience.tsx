@@ -1,6 +1,10 @@
 
 import React, { useState } from 'react';
 import { MapPin, Anchor, Clock, ExternalLink, BadgeCheck } from 'lucide-react';
+import ibmLogo from '../assets/Company/ibm-logo.png';
+import rcfLogo from '../assets/Company/rcf.png';
+import oracleLogo from '../assets/Company/oracle-logo.svg';
+import ship from '../assets/ship.png'
 
 const experiences = [
   {
@@ -9,7 +13,7 @@ const experiences = [
     company: "IBM",
     period: "2021 - Present",
     url: "https://www.ibm.com/",
-    logo: "../src/assets/Company/ibm-logo.png",
+    logo: ibmLogo,
     description: "Leading a team of 9 students to develop responsive website for a food donation NGO. ",
     achievements: [
       "Implemented essential functionalities, including secure login/signup, donation options (one-time/monthly) with stripe payment interface.",
@@ -22,7 +26,7 @@ const experiences = [
     company: "Oracle Financial Services Software",
     period: "June 2024 - Aug 2024",
     url: "https://www.oracle.com/",
-    logo: "../src/assets/Company/oracle-logo.svg",
+    logo: oracleLogo,
     description: "Developed responsive UI components and implemented complex business logic for banking platform. Worked closely with UX designers to create intuitive user interfaces.",
     achievements: [
       "Developed a website builder from scratch",
@@ -35,7 +39,7 @@ const experiences = [
     company: "Rashtriya Chemicals and Fertilizers Limited",
     period: "Dec 2024 -  Present",
     url: "https://rcfltd.com/",
-    logo: "../src/assets/Company/rcf.png",
+    logo: rcfLogo,
     description: "Worked on ASP.NET, C#, Active Directory, Oracle Toad, and databases through demo projects and live codebase optimization. Focused on development, debugging, and performance tuning.",
     achievements: [
       "Completely developed a Video Conference Management System from scratch.",
@@ -124,7 +128,7 @@ const Experience = () => {
 
           {/* Decorative ship at the end of timeline */}
           <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-10 w-24 h-24 bg-contain bg-center bg-no-repeat"
-            style={{ backgroundImage: "url('../src/assets/ship.png')" }}>
+            style={{ backgroundImage: `url(${ship})` }}>
           </div>
         </div>
       </div>

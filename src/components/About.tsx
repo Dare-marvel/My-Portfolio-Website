@@ -2,6 +2,7 @@ import React from 'react';
 import { Scroll, Feather, Compass, Anchor } from 'lucide-react';
 import { Avatar, AvatarImage, AvatarFallback } from './ui/avatar';
 import pirateShip from '../assets/pirate-ship.png';
+import adwaitProfile from '../assets/adwait-profile.jpg';
 
 const About = () => {
   return (
@@ -44,7 +45,7 @@ const About = () => {
                   
                   {/* Profile image */}
                   <Avatar className="h-32 w-32 border-4 border-pirate-gold/50 relative z-10 shadow-lg">
-                    <AvatarImage src="../src/assets/adwait-profile.jpg" alt="Captain's portrait" className="object-cover object-top" />
+                    <AvatarImage src={adwaitProfile} alt="Captain's portrait" className="object-cover object-top" />
                     <AvatarFallback className="bg-pirate-parchment text-pirate-wood-dark text-4xl font-pirate">CC</AvatarFallback>
                   </Avatar>
                   

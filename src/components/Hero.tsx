@@ -4,6 +4,7 @@ import shipImage from '../assets/black-pearl.png'; // Adjust the path as needed
 import { loadFull } from "tsparticles";
 import { tsParticles } from "@tsparticles/engine";
 import starryNightConfig from './starryNightConfig';
+import rudder from '../assets/rudder.png'
 
 const Hero = () => {
   const compassRef = useRef<HTMLDivElement>(null);
@@ -60,7 +61,7 @@ const Hero = () => {
         <div ref={compassRef} className="perspective-900 mb-8">
           {/* <Compass className="h-24 w-24 text-pirate-gold animate-spin-slow" /> */}
           <img
-            src="../src/assets/rudder.png"
+            src={rudder}
             alt="Compass"
             className="h-24 w-24 text-pirate-gold animate-spin-slow"
           />

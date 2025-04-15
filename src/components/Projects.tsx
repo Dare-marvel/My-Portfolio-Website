@@ -2,13 +2,20 @@
 import React, { useState } from 'react';
 import { Skull, Github, ExternalLink, Bookmark, Key, Sparkles } from 'lucide-react';
 import compass from '../assets/pirate-compass.png';
+import davyOpen from '../assets/davy-chest-open.png'
+import davyClosed from '../assets/davy-chest-closed.png'
+import aarogyaData from '../assets/Projects/AarogyaData.jpg'
+import sangrah from '../assets/Projects/InventoryManagement2.jpg'
+import codeRed from "../assets/Projects/CodeRed.jpg"
+import crackopoly from '../assets/Projects/Crackopoly.jpg'
+import davyKey from '../assets/davy-jones-key.png'
 
 const projects = [
   {
     id: 1,
     title: "AarogyaData - Enhancing Healthcare Access",
     description: "Created an AI-powered healthcare app to improve patient care through real-time predictions, medical insights, disease detection, and digital prescriptions. Integrated a centralized database for seamless access to patient records, enabling better decision-making and enhanced healthcare delivery. Built with Tensorflow,OpenCV,Keras,Scikit-learn,Google Dialogflow",
-    image: "../src/assets/Projects/AarogyaData.jpg",
+    image: aarogyaData,
     tags: ["NLP", "Image Classification", "Prediction", "QR Encoding"],
     github: "https://github.com/Dare-marvel/AarogyaData-Enhancing-Healthcare-Access",
     demo: "",
@@ -18,7 +25,7 @@ const projects = [
     id: 2,
     title: "Sangrah - Inventory Management System",
     description: "Built an intuitive interface for vendors and companies to manage inventory efficiently, with sales and product analytics, and low stock alerts. Also created a marketplace for companies to list products and integrated Stripe Payment Gateway for seamless transactions.Built with React.js ,Node.js, Material UI, Cheerio, Stripe ,Firebase.",
-    image: "../src/assets/Projects/InventoryManagement2.jpg",
+    image: sangrah,
     tags: ["Web Crawlers", "Data Analysis", "Inventory and Price Analytics"],
     github: "https://github.com/Dare-marvel/inventory_management",
     demo: "https://rohit-sangrah.netlify.app/",
@@ -28,7 +35,7 @@ const projects = [
     id: 3,
     title: "Code Red - A Story Based Game",
     description: "Developed an interactive 3D model of a bomb with functional buttons and customizable wire colors, enhancing user engagement through realistic simulation features, and created a human vs. AI Connect 4 game utilizing the Minimax algorithm.Built with React.js, NodesJS, Redux, React Three Fiber,React three drei, React-terminal",
-    image: "../src/assets/Projects/CodeRed.jpg",
+    image: codeRed,
     tags: ["Minimax Algorithm", "3D", "Game", "AI"],
     github: "https://github.com/Hitstar53/Code-Red-Tempest-Of-Timelines",
     demo: "",
@@ -38,7 +45,7 @@ const projects = [
     id: 4,
     title: "Crackopoly - Monopoly with a twist",
     description: "Developed an interactive Monopoly game featuring real-time multiplayer capabilities, room joining, chat functionality, game history, and a leaderboard. The game introduces a unique twist where players buy properties by solving riddles, adding a challenging element to the classic game. Built with React.js,Node.js, Socket.io",
-    image: "../src/assets/Projects/Crackopoly.jpg",
+    image: crackopoly,
     tags: ["Multiplayer game", "Realtime updates", "Socket.io"],
     github: "https://github.com/Dare-marvel/business-game",
     demo: "",
@@ -61,13 +68,13 @@ const Projects = () => {
 
         {/* Treasure chest image */}
         <div className="flex justify-center mb-12">
-          <div className="relative w-64 h-40 bg-contain bg-center bg-no-repeat"
-            style={{ backgroundImage: "url('../src/assets/davy-chest-closed.png')" }}
+          <div
+            className="relative w-64 h-40 bg-contain bg-center bg-no-repeat"
+            style={{ backgroundImage: `url(${davyClosed})` }}
             onClick={(e) => {
-              e.currentTarget.style.backgroundImage =
-                e.currentTarget.style.backgroundImage.includes("davy-chest-closed.png")
-                  ? "url('../src/assets/davy-chest-open.png')"
-                  : "url('../src/assets/davy-chest-closed.png')";
+              e.currentTarget.style.backgroundImage.includes(davyClosed)
+                ? (e.currentTarget.style.backgroundImage = `url(${davyOpen})`)
+                : (e.currentTarget.style.backgroundImage = `url(${davyClosed})`);
             }}
           >
             {/* <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
@@ -86,7 +93,7 @@ const Projects = () => {
             >
               <div className="absolute -top-3 -right-3">
                 <img
-                  src="../src/assets/davy-jones-key.png" // Replace with the actual path to your key image
+                  src={davyKey} // Replace with the actual path to your key image
                   alt="Key"
                   className={`h-15 w-8 text-pirate-gold transition-all duration-300 ${hoveredId === project.id ? 'rotate-90' : 'rotate-0'
                     }`} />
