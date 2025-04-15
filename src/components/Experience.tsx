@@ -8,6 +8,7 @@ const experiences = [
     title: "Intern",
     company: "IBM",
     period: "2021 - Present",
+    url: "https://www.ibm.com/",
     logo: "../src/assets/Company/ibm-logo.png",
     description: "Leading a team of 9 students to develop responsive website for a food donation NGO. ",
     achievements: [
@@ -20,6 +21,7 @@ const experiences = [
     title: "Project Intern",
     company: "Oracle Financial Services Software",
     period: "June 2024 - Aug 2024",
+    url: "https://www.oracle.com/",
     logo: "../src/assets/Company/oracle-logo.svg",
     description: "Developed responsive UI components and implemented complex business logic for banking platform. Worked closely with UX designers to create intuitive user interfaces.",
     achievements: [
@@ -32,6 +34,7 @@ const experiences = [
     title: "SDE Intern",
     company: "Rashtriya Chemicals and Fertilizers Limited",
     period: "Dec 2024 -  Present",
+    url: "https://rcfltd.com/",
     logo: "../src/assets/Company/rcf.png",
     description: "Worked on ASP.NET, C#, Active Directory, Oracle Toad, and databases through demo projects and live codebase optimization. Focused on development, debugging, and performance tuning.",
     achievements: [
@@ -109,7 +112,10 @@ const Experience = () => {
 
                   {/* Decorative elements */}
                   <div className="absolute top-4 right-4">
-                    <ExternalLink className="h-5 w-5 text-pirate-gold/50" />
+                    <a href={exp.url} target="_blank" rel="noopener noreferrer" >
+                      <ExternalLink className="h-5 w-5 text-pirate-ocean-deep/50" />
+                    </a>
+
                   </div>
                 </div>
               </div>

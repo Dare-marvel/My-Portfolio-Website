@@ -11,7 +11,7 @@ const projects = [
     image: "../src/assets/Projects/AarogyaData.jpg",
     tags: ["NLP", "Image Classification", "Prediction", "QR Encoding"],
     github: "https://github.com/Dare-marvel/AarogyaData-Enhancing-Healthcare-Access",
-    demo: "https://black-pearl-dashboard.demo.com",
+    demo: "",
     bgPosition: "top"
   },
   {
@@ -31,7 +31,7 @@ const projects = [
     image: "../src/assets/Projects/CodeRed.jpg",
     tags: ["Minimax Algorithm", "3D", "Game", "AI"],
     github: "https://github.com/Hitstar53/Code-Red-Tempest-Of-Timelines",
-    demo: "https://treasure-map.demo.com",
+    demo: "",
     bgPosition: "50% 30%"
   },
   {
@@ -41,7 +41,7 @@ const projects = [
     image: "../src/assets/Projects/Crackopoly.jpg",
     tags: ["Multiplayer game", "Realtime updates", "Socket.io"],
     github: "https://github.com/Dare-marvel/business-game",
-    demo: "https://pirate-weather.demo.com",
+    demo: "",
     bgPosition: "50% 30%"
   }
 ];
@@ -106,14 +106,17 @@ const Projects = () => {
                     >
                       <Github className="h-6 w-6" />
                     </a>
-                    <a
-                      href={project.demo}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-2 bg-pirate-gold rounded-full hover:bg-amber-500 text-pirate-wood-dark transition-colors duration-300"
-                    >
-                      <ExternalLink className="h-6 w-6" />
-                    </a>
+                    {project.demo && (
+                      <a
+                        href={project.demo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-2 bg-pirate-gold rounded-full hover:bg-amber-500 text-pirate-wood-dark transition-colors duration-300"
+                      >
+                        <ExternalLink className="h-6 w-6" />
+                      </a>
+                    )}
+
                   </div>
                 </div>
               </div>

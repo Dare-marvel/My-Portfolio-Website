@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Github, Linkedin, Twitter, Mail, Heart } from 'lucide-react';
+import { Github, Linkedin, Twitter, Mail, Heart,BookA  } from 'lucide-react';
 
 import compass from '../assets/compass.jpg';
 
@@ -19,16 +19,19 @@ const Footer = () => {
           <div className="text-2xl font-pirate mb-4 md:mb-0">Captain's Portfolio</div>
           
           <div className="flex space-x-4">
-            <a href="https://github.com/" target="_blank" rel="noopener noreferrer" className="hover:text-pirate-gold transition-colors duration-300">
+            <a href="https://github.com/Dare-marvel/" target="_blank" rel="noopener noreferrer" className="hover:text-pirate-gold transition-colors duration-300">
               <Github className="h-6 w-6" />
             </a>
-            <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer" className="hover:text-pirate-gold transition-colors duration-300">
+            <a href="https://www.linkedin.com/in/adwait-p-04a4a222a/" target="_blank" rel="noopener noreferrer" className="hover:text-pirate-gold transition-colors duration-300">
               <Linkedin className="h-6 w-6" />
             </a>
-            <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" className="hover:text-pirate-gold transition-colors duration-300">
+            <a href="https://x.com/puraoadwait" target="_blank" rel="noopener noreferrer" className="hover:text-pirate-gold transition-colors duration-300">
               <Twitter className="h-6 w-6" />
             </a>
-            <a href="mailto:captain@pirateportfolio.com" className="hover:text-pirate-gold transition-colors duration-300">
+            <a href="https://medium.com/@adwait.purao" target="_blank" rel="noopener noreferrer" className="hover:text-pirate-gold transition-colors duration-300">
+              <BookA className="h-6 w-6" />
+            </a>
+            <a href="mailto:puraosadwait@gmail.com" className="hover:text-pirate-gold transition-colors duration-300">
               <Mail className="h-6 w-6" />
             </a>
           </div>
@@ -36,7 +39,7 @@ const Footer = () => {
         
         <div className="border-t border-pirate-parchment/20 pt-6 text-center">
           <p className="flex items-center justify-center gap-2 text-sm">
-            Crafted with <Heart className="h-4 w-4 text-red-500" fill="currentColor" /> by a Code Pirate &copy; {new Date().getFullYear()}
+            Crafted with <Heart className="h-4 w-4 text-red-500" fill="currentColor" /> by Adwait Purao &copy; {new Date().getFullYear()}
           </p>
           <p className="text-xs mt-2 text-pirate-parchment/70">
             All rights reserved. Handle this booty with care.
