@@ -1,20 +1,42 @@
-
 import React, { useState, useEffect } from 'react';
-import { Anchor, Compass, MapPin, Skull, FlaskConical, Scroll, MessageSquare } from 'lucide-react';
-import medallion from '../assets/medallion.png'
+import {
+  Anchor, Compass, MapPin, Skull,
+  FlaskConical, Scroll, MessageSquare,
+  Menu, X
+} from 'lucide-react';
+import medallion from '../assets/medallion.png';
+
+const navItems = [
+  { id: 'hero', label: 'Home', icon: <Compass className="h-5 w-5 text-pirate-gold" /> },
+  { id: 'about', label: 'Log', icon: <Scroll className="h-5 w-5 text-pirate-gold" /> },
+  { id: 'experience', label: 'Voyages', icon: <MapPin className="h-5 w-5 text-pirate-gold" /> },
+  { id: 'skills', label: 'Abilities', icon: <FlaskConical className="h-5 w-5 text-pirate-gold" /> },
+  { id: 'projects', label: 'Treasures', icon: <Skull className="h-5 w-5 text-pirate-gold" /> },
+  { id: 'contact', label: 'Message', icon: <MessageSquare className="h-5 w-5 text-pirate-gold" /> },
+];
 
 const Navbar = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
-  
+  const [activeSection, setActiveSection] = useState('');
+  const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   useEffect(() => {
     const handleScroll = () => {
-      setScrollPosition(window.scrollY);
+      const scrollY = window.scrollY;
+      setScrollPosition(scrollY);
+
+      let currentSection = '';
+      navItems.forEach(item => {
+        const section = document.getElementById(item.id);
+        if (section && scrollY >= section.offsetTop - 150) {
+          currentSection = item.id;
+        }
+      });
+      setActiveSection(currentSection);
     };
-    
+
     window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const scrollToSection = (id: string) => {
@@ -25,48 +47,63 @@ const Navbar = () => {
         behavior: 'smooth'
       });
     }
+    setMobileMenuOpen(false); // Close mobile menu on click
   };
 
   return (
     <nav className={`fixed top-0 left-0 right-0 wood-bg z-50 transition-all duration-300 ${scrollPosition > 50 ? 'py-2 shadow-lg' : 'py-4'}`}>
       <div className="container mx-auto flex justify-between items-center px-4">
         <div className="text-pirate-parchment font-pirate text-2xl flex items-center gap-2">
-        <img src={medallion} alt="Captain's Logo" className="h-14 w-14 text-pirate-gold animate-sway" />
+          <img src={medallion} alt="Captain's Logo" className="h-14 w-14 text-pirate-gold animate-sway" />
           <span className="hidden sm:inline">Captain's Portfolio</span>
         </div>
-        
-        <div className="flex space-x-1 md:space-x-4">
-          <button onClick={() => scrollToSection('hero')} className="wooden-nav-item flex flex-col items-center">
-            <Compass className="h-5 w-5 text-pirate-gold" />
-            <span className="text-sm md:text-base">Home</span>
-          </button>
-          
-          <button onClick={() => scrollToSection('about')} className="wooden-nav-item flex flex-col items-center">
-            <Scroll className="h-5 w-5 text-pirate-gold" />
-            <span className="text-sm md:text-base">Log</span>
-          </button>
-          
-          <button onClick={() => scrollToSection('experience')} className="wooden-nav-item flex flex-col items-center">
-            <MapPin className="h-5 w-5 text-pirate-gold" />
-            <span className="text-sm md:text-base">Voyages</span>
-          </button>
-          
-          <button onClick={() => scrollToSection('skills')} className="wooden-nav-item flex flex-col items-center">
-            <FlaskConical className="h-5 w-5 text-pirate-gold" />
-            <span className="text-sm md:text-base">Abilities</span>
-          </button>
-          
-          <button onClick={() => scrollToSection('projects')} className="wooden-nav-item flex flex-col items-center">
-            <Skull className="h-5 w-5 text-pirate-gold" />
-            <span className="text-sm md:text-base">Treasures</span>
-          </button>
-          
-          <button onClick={() => scrollToSection('contact')} className="wooden-nav-item flex flex-col items-center">
-            <MessageSquare className="h-5 w-5 text-pirate-gold" />
-            <span className="text-sm md:text-base">Message</span>
+
+        {/* Desktop Navigation */}
+        <div className="hidden md:flex space-x-1 md:space-x-4">
+          {navItems.map(item => (
+            <button
+              key={item.id}
+              onClick={() => scrollToSection(item.id)}
+              className={`wooden-nav-item flex flex-col items-center relative ${activeSection === item.id ? 'text-pirate-gold' : ''
+                }`}
+            >
+              {item.icon}
+              <span className="text-sm md:text-base">{item.label}</span>
+              {activeSection === item.id && (
+                <div
+                  className={`absolute left-0 bottom-0 h-[2px] bg-pirate-gold transition-all duration-300 ${activeSection === item.id ? 'w-full' : 'w-0'
+                    }`}
+                />
+              )}
+
+            </button>
+          ))}
+        </div>
+
+        {/* Mobile Menu Toggle */}
+        <div className="md:hidden">
+          <button onClick={() => setMobileMenuOpen(!isMobileMenuOpen)}>
+            {isMobileMenuOpen ? <X className="text-pirate-gold h-6 w-6" /> : <Menu className="text-pirate-gold h-6 w-6" />}
           </button>
         </div>
       </div>
+
+      {/* Mobile Navigation */}
+      {isMobileMenuOpen && (
+        <div className="md:hidden px-4 py-2 flex flex-col space-y-2 wood-bg border-t border-pirate-gold">
+          {navItems.map(item => (
+            <button
+              key={item.id}
+              onClick={() => scrollToSection(item.id)}
+              className={`wooden-nav-item flex items-center gap-2 ${activeSection === item.id ? 'text-pirate-gold' : ''
+                }`}
+            >
+              {item.icon}
+              <span className="text-base">{item.label}</span>
+            </button>
+          ))}
+        </div>
+      )}
     </nav>
   );
 };

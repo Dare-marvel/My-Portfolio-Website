@@ -5,7 +5,7 @@ import pirateShip from '../assets/pirate-ship.png';
 import adwaitProfile from '../assets/adwait-profile.jpg';
 import flag from '../assets/flag.png'
 import map from '../assets/map.png'
-import parchmentTexture from '../assets/parchment-texture.jpg'
+import parchmentTexture from '../assets/parchment-texture.png'
 
 const About = () => {
   return (
