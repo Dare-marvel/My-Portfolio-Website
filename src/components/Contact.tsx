@@ -1,14 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
+import splashSound from '../assets/Sound/water-splash.mp3';
 import { Send, Mail, MessageSquare, User, AlertTriangle, Anchor, Skull } from 'lucide-react';
 import rumBottle from '../assets/rum-bottle.png';
 import swordMap from '../assets/sword-map.png';
-import toast from 'react-hot-toast'; 
+import toast from 'react-hot-toast';
 
 // Custom pirate toast components
 const PirateToast = ({ message, type }) => {
+
   const icon = type === 'success' ? <Anchor className="h-5 w-5" /> : <Skull className="h-5 w-5" />;
   const bgColor = type === 'success' ? 'bg-green-800' : 'bg-red-800';
-  
+
   return (
     <div className={`${bgColor} text-white font-pirate rounded-lg border-2 border-pirate-gold p-4 shadow-lg flex items-center gap-3`}>
       <div className="bg-pirate-gold p-2 rounded-full">
@@ -21,50 +23,54 @@ const PirateToast = ({ message, type }) => {
 
 const Contact = () => {
   const [error, setError] = useState('');
-  
+  const splashRef = useRef<HTMLAudioElement | null>(null);
+
   // Email validation function
   const isValidEmail = (email) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
   };
-  
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
-    
+
+
+
     // Get form values using document.getElementById and trim them
     const nameInput = document.getElementById('name') as HTMLInputElement;
     const emailInput = document.getElementById('email') as HTMLInputElement;
     const messageInput = document.getElementById('message') as HTMLTextAreaElement;
-    
+
     const name = nameInput?.value.trim();
     const email = emailInput?.value.trim();
     const message = messageInput?.value.trim();
-    
+
     // Validate form
     if (!name || !email || !message) {
       setError('All fields are required, matey!');
       return;
     }
-    
+
     // Validate email
     if (!isValidEmail(email)) {
       setError('Arrr! That be not a valid email address!');
       return;
     }
-    
+
     // Custom loading toast
     toast.custom((t) => (
-      <div className={`bg-blue-800 text-white font-pirate rounded-lg border-2 border-pirate-gold p-4 shadow-lg flex items-center gap-3 ${
-        t.visible ? 'animate-bounce' : 'opacity-0'
-      }`}>
+      <div className={`bg-blue-800 text-white font-pirate rounded-lg border-2 border-pirate-gold p-4 shadow-lg flex items-center gap-3 ${t.visible ? 'animate-bounce' : 'opacity-0'
+        }`}>
         <div className="bg-pirate-gold p-2 rounded-full animate-spin">
           <Anchor className="h-5 w-5" />
         </div>
         <p>Sending your message across the seven seas...</p>
       </div>
     ), { id: 'loading-toast', duration: Infinity });
-    
+
+    splashRef.current?.play();
+
     // Send form data to Formspree
     fetch(import.meta.env.VITE_FORMSPREE_URL, { // Replace with your actual Formspree ID
       method: 'POST',
@@ -78,12 +84,12 @@ const Contact = () => {
         if (response.ok) {
           // Success
           toast.custom((t) => (
-            <PirateToast 
-              message="Message sent successfully! I'll respond faster than a frigate with the wind at its back!" 
-              type="success" 
+            <PirateToast
+              message="Message sent successfully! I'll respond faster than a frigate with the wind at its back!"
+              type="success"
             />
           ), { duration: 5000 });
-          
+
           // Reset form
           nameInput.value = '';
           emailInput.value = '';
@@ -91,9 +97,9 @@ const Contact = () => {
         } else {
           // Error
           toast.custom((t) => (
-            <PirateToast 
-              message="Blimey! There was an error sending your message. Try again, matey!" 
-              type="error" 
+            <PirateToast
+              message="Blimey! There was an error sending your message. Try again, matey!"
+              type="error"
             />
           ), { duration: 5000 });
         }
@@ -101,9 +107,9 @@ const Contact = () => {
       .catch(() => {
         toast.dismiss('loading-toast');
         toast.custom((t) => (
-          <PirateToast 
-            message="Shiver me timbers! Connection failed. Check yer network and try again!" 
-            type="error" 
+          <PirateToast
+            message="Shiver me timbers! Connection failed. Check yer network and try again!"
+            type="error"
           />
         ), { duration: 5000 });
       });
@@ -120,16 +126,18 @@ const Contact = () => {
         </div>
 
         <div className="pirate-section max-w-2xl mx-auto relative">
-          {/* Bottle decoration */}
-          <div className="absolute -top-8 right-10 w-16 h-32 bg-contain bg-no-repeat"
-            style={{ backgroundImage: `url(${rumBottle})` }}>
-          </div>
-          
-          <div className="flex items-center gap-3 mb-8">
+          {/* Bottle decoration - repositioned for mobile */}
+          <div
+            className="absolute -top-8 right-4 sm:right-10 w-12 sm:w-16 h-28 sm:h-32 bg-contain bg-no-repeat z-0 hide-bottle"
+            style={{ backgroundImage: `url(${rumBottle})` }}
+          ></div>
+
+
+          <div className="flex items-center gap-3 mb-8 relative z-10">
             <Mail className="h-8 w-8 text-pirate-gold" />
             <h3 className="text-2xl font-pirate">Contact the Captain</h3>
           </div>
-          
+
           <form onSubmit={handleSubmit}>
             {error && (
               <div className="bg-red-800 border-2 border-pirate-gold text-white px-4 py-3 rounded-lg relative mb-6 font-pirate" role="alert">
@@ -140,7 +148,7 @@ const Contact = () => {
                 <span className="block sm:inline mt-1">{error}</span>
               </div>
             )}
-            
+
             <div className="mb-6">
               <label htmlFor="name" className="block font-pirate text-lg mb-2 flex items-center gap-2">
                 <User className="h-5 w-5 text-pirate-gold" />
@@ -154,7 +162,7 @@ const Contact = () => {
                 placeholder="Enter your name"
               />
             </div>
-            
+
             <div className="mb-6">
               <label htmlFor="email" className="block font-pirate text-lg mb-2 flex items-center gap-2">
                 <Mail className="h-5 w-5 text-pirate-gold" />
@@ -168,7 +176,7 @@ const Contact = () => {
                 placeholder="Enter your email"
               />
             </div>
-            
+
             <div className="mb-6">
               <label htmlFor="message" className="block font-pirate text-lg mb-2 flex items-center gap-2">
                 <MessageSquare className="h-5 w-5 text-pirate-gold" />
@@ -182,23 +190,25 @@ const Contact = () => {
                 placeholder="Write your message here..."
               ></textarea>
             </div>
-            
-            <div className="text-center">
+
+            <div className="text-center flex justify-center">
               <button
                 type="submit"
-                className="pirate-button group"
+                className="pirate-button group relative flex items-center justify-center gap-2"
               >
-                <span>Throw the bottle in the Ocean   
-                {/* <Send className="absolute right-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-pirate-gold opacity-0 group-hover:opacity-100 transition-opacity duration-300" /> */}
-                </span>
+                <Send className="h-5 w-5 text-pirate-gold transition-transform group-hover:translate-x-1 duration-300" />
+                <span>Throw the bottle in the Ocean</span>
               </button>
             </div>
           </form>
-          
-          {/* Map decoration */}
-          <div className="absolute -bottom-10 -left-10 w-20 h-20 bg-contain bg-no-repeat opacity-50"
+
+          {/* Map decoration - repositioned lower and more left for mobile */}
+          <div className="absolute -bottom-9 sm:-bottom-10 -left-4 sm:-left-10 w-16 sm:w-20 h-16 sm:h-20 bg-contain bg-no-repeat opacity-50"
             style={{ backgroundImage: `url(${swordMap})` }}>
           </div>
+
+          {/* Splash sound audio */}
+          <audio ref={splashRef} src={splashSound} preload="auto" />
         </div>
       </div>
     </section>
