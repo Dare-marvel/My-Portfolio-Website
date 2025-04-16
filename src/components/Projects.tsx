@@ -148,13 +148,27 @@ const Projects = () => {
                 ))}
               </div>
 
-              {/* Decorative coin */}
+              {/* Decorative Compass */}
               <div className={`absolute bottom-3 right-3 w-10 h-10 bg-contain bg-center bg-no-repeat transition-all duration-500 ${hoveredId === project.id ? 'rotate-[360deg]' : 'rotate-0'}`}
                 style={{ backgroundImage: `url(${compass})` }}>
               </div>
             </div>
           ))}
         </div>
+
+        {/* View More on GitHub Button */}
+        <div className="flex justify-center mt-12">
+          <a
+            href="https://github.com/dare-marvel" // replace with your actual GitHub profile or repo link
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-6 py-2 rounded-xl bg-yellow-300 hover:bg-yellow-400 text-pirate-wood-dark font-semibold font-pirate shadow-md transition-transform transform hover:scale-105"
+          >
+            <Github className="h-5 w-5" />
+            More Treasures
+          </a>
+        </div>
+
       </div>
     </section>
   );

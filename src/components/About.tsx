@@ -6,6 +6,7 @@ import adwaitProfile from '../assets/adwait-profile.jpg';
 import flag from '../assets/flag.png'
 import map from '../assets/map.png'
 import parchmentTexture from '../assets/parchment-texture.png'
+import Resume from '../assets/Resume/Adwait_Purao_Resume.pdf'
 
 const About = () => {
   return (
@@ -115,6 +116,19 @@ const About = () => {
                 <div className="text-right mt-8 font-pirate text-xl text-pirate-wood-dark italic">
                   - Capt. Adwait
                 </div>
+
+                {/* Download Resume Button */}
+                <div className="mt-6 flex justify-center ">
+                  <a
+                    href={Resume} // adjust this path if needed
+                    download="Captain-Adwait-Resume.pdf"
+                    className="inline-flex items-center gap-2 px-6 py-2 rounded-xl bg-pirate-gold/90 hover:bg-pirate-gold text-pirate-wood-dark font-semibold font-pirate shadow-md transition-transform transform hover:scale-105"
+                  >
+                    <Feather className="w-5 h-5" />
+                    Download Logbook
+                  </a>
+                </div>
+
               </div>
             </div>
           </div>
