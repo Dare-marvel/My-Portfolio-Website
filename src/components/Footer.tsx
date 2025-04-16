@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Github, Linkedin, Twitter, Mail, Heart,BookA  } from 'lucide-react';
+import { Github, Linkedin, Twitter, Mail, Heart, BookA } from 'lucide-react';
 
 import compass from '../assets/compass.jpg';
 
@@ -13,11 +13,11 @@ const Footer = () => {
           <path fill="#C4A484" fillOpacity="1" d="M0,192L60,208C120,224,240,256,360,245.3C480,235,600,181,720,181.3C840,181,960,235,1080,234.7C1200,235,1320,181,1380,154.7L1440,128L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z"></path>
         </svg>
       </div>
-      
+
       <div className="container mx-auto px-4 z-10 relative">
         <div className="flex flex-col md:flex-row justify-between items-center mb-8">
           <div className="text-2xl font-pirate mb-4 md:mb-0">Captain's Portfolio</div>
-          
+
           <div className="flex space-x-4">
             <a href="https://github.com/Dare-marvel/" target="_blank" rel="noopener noreferrer" className="hover:text-pirate-gold transition-colors duration-300">
               <Github className="h-6 w-6" />
@@ -36,7 +36,7 @@ const Footer = () => {
             </a>
           </div>
         </div>
-        
+
         <div className="border-t border-pirate-parchment/20 pt-6 text-center">
           <p className="flex items-center justify-center gap-2 text-sm">
             Crafted with <Heart className="h-4 w-4 text-red-500" fill="currentColor" /> by Adwait Purao &copy; {new Date().getFullYear()}
@@ -46,11 +46,12 @@ const Footer = () => {
           </p>
         </div>
       </div>
-      
-      {/* Ship decoration */}
-      <div className="absolute bottom-0 right-0 w-32 h-24 bg-contain bg-bottom bg-no-repeat opacity-100"
+
+      {/* Compass decoration */}
+      <div className="absolute bottom-0 right-0 w-32 h-24 bg-contain bg-bottom bg-no-repeat opacity-100 hidden md:block"
         style={{ backgroundImage: `url(${compass})` }}>
       </div>
+
     </footer>
   );
 };

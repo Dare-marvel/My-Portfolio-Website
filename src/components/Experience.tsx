@@ -62,17 +62,18 @@ const Experience = () => {
           </div>
         </div>
 
-        <div className="relative max-w-5xl mx-auto">
+        <div className="relative max-w-5xl mx-auto pb-32 md:pb-24">
           {/* Timeline */}
           <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-1 h-full bg-pirate-wood-dark/30"></div>
 
           {/* Experience markers */}
           <div className="relative z-10">
             {experiences.map((exp, index) => (
-              <div key={exp.id} className="relative mb-16">
+              <div key={exp.id} className="relative mb-20 flex flex-col md:block items-center">
+
                 {/* Timeline marker */}
                 <div
-                  className={`absolute left-1/2 top-0 transform -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-full flex items-center justify-center cursor-pointer transition-all duration-300 ${activeExp.id === exp.id ? 'scale-125' : 'scale-100'}`}
+                  className={`relative md:absolute md:left-1/2 md:top-0 transform md:-translate-x-1/2 md:-translate-y-1/2 w-14 h-14 z-20 mb-4 md:mb-0 cursor-pointer transition-all duration-300 ${activeExp.id === exp.id ? 'scale-110' : 'scale-100'}`}
                   onClick={() => setActiveExp(exp)}
                 >
                   <div className="absolute w-14 h-14 bg-pirate-parchment-dark rounded-full border-2 border-pirate-gold flex items-center justify-center">
@@ -85,7 +86,7 @@ const Experience = () => {
                 </div>
 
                 {/* Content card - alternate left and right */}
-                <div className={`w-full md:w-5/12 pirate-section ${index % 2 === 0 ? 'md:ml-auto' : 'md:mr-auto'} ${activeExp.id === exp.id ? 'border-pirate-gold/70' : ''}`}>
+                <div className={`w-full md:w-5/12 pirate-section relative z-10 ${index % 2 === 0 ? 'md:ml-auto' : 'md:mr-auto'} ${activeExp.id === exp.id ? 'border-pirate-gold/70' : ''}`}>
                   <div className="flex justify-between items-start mb-4">
                     <div>
                       <h3 className="text-xl font-pirate">{exp.title}</h3>
