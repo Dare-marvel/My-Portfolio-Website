@@ -120,7 +120,7 @@ const About = () => {
           </div>
 
           {/* Map decoration */}
-          <div className="absolute -bottom-9 -left-8 w-24 h-24 bg-contain bg-no-repeat opacity-70"
+          <div className="absolute -bottom-9 -left-8 w-24 h-24 bg-contain bg-no-repeat opacity-70 hidden lg:block"
             style={{ backgroundImage: `url(${map})` }}>
           </div>
         </div>
