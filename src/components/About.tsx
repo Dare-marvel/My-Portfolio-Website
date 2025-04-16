@@ -24,9 +24,10 @@ const About = () => {
 
         <div className="pirate-section max-w-4xl mx-auto">
           {/* Decorations */}
-          <div className="absolute -top-10 -right-10 w-20 h-20 bg-contain bg-no-repeat animate-float"
+          <div className="absolute -top-10 -right-10 w-20 h-20 bg-contain bg-no-repeat animate-float hidden lg:block"
             style={{ backgroundImage: `url(${pirateShip})` }}>
           </div>
+
 
           {/* Parchment paper with torn edges */}
           <div className="relative mb-12">

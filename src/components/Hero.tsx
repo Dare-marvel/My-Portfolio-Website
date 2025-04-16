@@ -74,14 +74,6 @@ const Hero = () => {
         <p className="text-xl md:text-xl font-scroll text-pirate-parchment-dark text-center max-w-3xl mb-12 drop-shadow-sm">
           Step aboard me portfolio, where code and adventure collide. Hunt for treasures and see what this pirate coder brings to yer crew!
         </p>
-
-        {/* <button 
-          onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
-          className="pirate-button group"
-        >
-          <span>Set Sail on My Journey</span>
-          <Anchor className="absolute right-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-pirate-gold opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-        </button> */}
       </div>
 
       {/* Wave animations */}
