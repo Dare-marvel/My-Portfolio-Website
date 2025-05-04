@@ -40,7 +40,7 @@ const experiences = [
     period: "Dec 2024 -  Present",
     url: "https://rcfltd.com/",
     logo: rcfLogo,
-    description: "Worked on ASP.NET, C#, Active Directory, Oracle Toad, and databases through demo projects and live codebase optimization. Focused on development, debugging, and performance tuning.",
+    description: "Worked on ASP.NET, C#, Active Directory, Oracle Toad, and databases through Real world projects and live codebase optimization. Focused on development, debugging, web scraping and performance tuning.",
     achievements: [
       "Completely developed a Video Conference Management System from scratch.",
       "Reduced data fetching time with caching.",
