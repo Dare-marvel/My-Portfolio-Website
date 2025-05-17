@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Github, Linkedin, Twitter, Mail, Heart, BookA } from 'lucide-react';
+import { Github, Linkedin, Twitter, Mail, Heart, BookA, Shirt } from 'lucide-react';
 
 import compass from '../assets/compass.jpg';
 
@@ -33,6 +33,9 @@ const Footer = () => {
             </a>
             <a href="mailto:puraosadwait@gmail.com" className="hover:text-pirate-gold transition-colors duration-300">
               <Mail className="h-6 w-6" />
+            </a>
+            <a href="https://www.teepublic.com/user/trustd" target="_blank" rel="noopener noreferrer" className="hover:text-pirate-gold transition-colors duration-300">
+              <Shirt className="h-6 w-6" />
             </a>
           </div>
         </div>
