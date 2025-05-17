@@ -1,15 +1,26 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Anchor, Compass } from 'lucide-react';
-import shipImage from '../assets/black-pearl.png'; // Adjust the path as needed
+import shipImage from '../assets/black-pearl.png';
 import { loadFull } from "tsparticles";
 import { tsParticles } from "@tsparticles/engine";
 import starryNightConfig from './starryNightConfig';
-import rudder from '../assets/rudder.png'
+import rudder from '../assets/rudder.png';
 import waveSrc from "../assets/wave.svg";
+import pirateMusic from "../assets/Sound/pirate_music.mp3"; // Import the music file
 
 const Hero = () => {
   const compassRef = useRef<HTMLDivElement>(null);
   const particlesContainerRef = useRef<HTMLDivElement>(null);
+  const rudderRef = useRef<HTMLImageElement>(null);
+  const shipRef = useRef<HTMLDivElement>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+
+  // For rudder dragging
+  const isDragging = useRef(false);
+  const startAngle = useRef(0);
+  const currentAngle = useRef(0);
+  const center = useRef({ x: 0, y: 0 });
 
   useEffect(() => {
     // Initialize particles
@@ -20,25 +31,86 @@ const Hero = () => {
       });
     });
 
-    const handleMouseMove = (e: MouseEvent) => {
-      if (!compassRef.current) return;
+    // Initialize audio
+    audioRef.current = new Audio(pirateMusic); // Use the imported music file
+    audioRef.current.loop = true;
 
-      const { clientX, clientY } = e;
-      const windowWidth = window.innerWidth;
-      const windowHeight = window.innerHeight;
-
-      // Calculate rotation based on mouse position
-      const rotateX = (clientY / windowHeight - 0.5) * 20;
-      const rotateY = (clientX / windowWidth - 0.5) * -20;
-
-      compassRef.current.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-    };
-
-    window.addEventListener('mousemove', handleMouseMove);
     return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
+      if (audioRef.current) {
+        audioRef.current.pause();
+        audioRef.current = null;
+      }
     };
   }, []);
+
+  useEffect(() => {
+    const rudderElement = rudderRef.current;
+    if (!rudderElement) return;
+
+    const handleMouseDown = (e: MouseEvent) => {
+      if (!rudderElement) return;
+      
+      const rect = rudderElement.getBoundingClientRect();
+      center.current = {
+        x: rect.left + rect.width / 2,
+        y: rect.top + rect.height / 2
+      };
+      
+      startAngle.current = Math.atan2(
+        e.clientY - center.current.y,
+        e.clientX - center.current.x
+      );
+      
+      isDragging.current = true;
+      
+      // Prevent text selection while dragging
+      document.body.style.userSelect = 'none';
+    };
+
+    const handleMouseMove = (e: MouseEvent) => {
+      if (!isDragging.current || !rudderElement) return;
+      
+      const angle = Math.atan2(
+        e.clientY - center.current.y,
+        e.clientX - center.current.x
+      );
+      
+      currentAngle.current = angle - startAngle.current;
+      rudderElement.style.transform = `rotate(${currentAngle.current}rad)`;
+    };
+
+    const handleMouseUp = () => {
+      isDragging.current = false;
+      document.body.style.userSelect = '';
+    };
+
+    rudderElement.addEventListener('mousedown', handleMouseDown);
+    window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('mouseup', handleMouseUp);
+
+    return () => {
+      rudderElement.removeEventListener('mousedown', handleMouseDown);
+      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('mouseup', handleMouseUp);
+    };
+  }, []);
+
+  const toggleMusic = async () => {
+    if (!audioRef.current) return;
+    
+    try {
+      if (isPlaying) {
+        await audioRef.current.pause();
+      } else {
+        await audioRef.current.play();
+      }
+      setIsPlaying(!isPlaying);
+    } catch (error) {
+      console.error("Audio playback failed:", error);
+      // You might want to show a message to the user here
+      // For example: "Please interact with the page first to enable audio"
+    }
+  };
 
   return (
     <section id="hero" className="relative min-h-screen flex flex-col items-center justify-center pt-15 pb-12 overflow-hidden">
@@ -48,23 +120,33 @@ const Hero = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-pirate-ocean-deep/50"></div>
       </div>
 
-      {/* Fog Animation (you can keep or remove this based on preference) */}
-      {/* <div className="fog"></div>
-      <div className="fog" style={{ animationDelay: '20s' }}></div> */}
-
       {/* Ship Silhouette */}
-      <div className="absolute bottom-0 w-full h-2/5 bg-contain bg-bottom bg-no-repeat z-10 opacity-60 animate-wave"
-        style={{ backgroundImage: `url(${shipImage})` }}>
+      <div 
+        ref={shipRef}
+        className="absolute bottom-0 w-full h-2/5 bg-contain bg-bottom bg-no-repeat z-10 opacity-60 animate-wave cursor-pointer"
+        style={{ backgroundImage: `url(${shipImage})` }}
+        onClick={toggleMusic}
+      >
+        {/* Visual indicator for music state */}
+        {isPlaying && (
+          <div className="absolute top-4 right-4 bg-black/70 rounded-full p-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+              <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            </svg>
+          </div>
+        )}
       </div>
 
       {/* Content */}
       <div className="container mx-auto relative z-20 px-4 flex flex-col items-center">
         <div ref={compassRef} className="perspective-900 mb-8">
-          {/* <Compass className="h-24 w-24 text-pirate-gold animate-spin-slow" /> */}
           <img
+            ref={rudderRef}
             src={rudder}
-            alt="Compass"
-            className="h-24 w-24 text-pirate-gold animate-spin-slow"
+            alt="Rudder"
+            className="h-24 w-24 text-pirate-gold cursor-grab active:cursor-grabbing"
+            style={{ transform: 'rotate(0rad)' }}
           />
         </div>
 
@@ -81,7 +163,6 @@ const Hero = () => {
       <div className="absolute bottom-0 left-0 w-full z-20 opacity-40">
         <img src={waveSrc} alt="Wave Animation" />
       </div>
-      
     </section>
   );
 };
