@@ -4,7 +4,7 @@ Follow these steps:
 
 ```sh
 # Step 1: Clone the repository using the project's Git URL.
-git clone https://github.com/Dare-marvel/pirate-portfolio-voyage.git
+git clone https://github.com/Dare-marvel/My-Portfolio-Website.git
 
 # Step 2: Navigate to the project directory.
 cd <YOUR_PROJECT_NAME>
