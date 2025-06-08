@@ -6,7 +6,7 @@ import { tsParticles } from "@tsparticles/engine";
 import starryNightConfig from './starryNightConfig';
 import rudder from '../assets/rudder.png';
 import waveSrc from "../assets/wave.svg";
-import pirateMusic from "../assets/Sound/pirate_music.mp3"; // Import the music file
+import pirateMusic from "../assets/Sound/pirate_music.mp3";
 
 const Hero = () => {
   const compassRef = useRef<HTMLDivElement>(null);
@@ -32,7 +32,7 @@ const Hero = () => {
     });
 
     // Initialize audio
-    audioRef.current = new Audio(pirateMusic); // Use the imported music file
+    audioRef.current = new Audio(pirateMusic);
     audioRef.current.loop = true;
 
     return () => {
@@ -62,8 +62,6 @@ const Hero = () => {
       );
       
       isDragging.current = true;
-      
-      // Prevent text selection while dragging
       document.body.style.userSelect = 'none';
     };
 
@@ -107,8 +105,6 @@ const Hero = () => {
       setIsPlaying(!isPlaying);
     } catch (error) {
       console.error("Audio playback failed:", error);
-      // You might want to show a message to the user here
-      // For example: "Please interact with the page first to enable audio"
     }
   };
 
@@ -123,19 +119,24 @@ const Hero = () => {
       {/* Ship Silhouette */}
       <div 
         ref={shipRef}
-        className="absolute bottom-0 w-full h-2/5 bg-contain bg-bottom bg-no-repeat z-10 opacity-60 animate-wave cursor-pointer"
+        className="absolute bottom-0 w-full h-2/5 bg-contain bg-bottom bg-no-repeat z-10 opacity-60 animate-wave"
         style={{ backgroundImage: `url(${shipImage})` }}
-        onClick={toggleMusic}
       >
-        {/* Visual indicator for music state */}
-        {isPlaying && (
-          <div className="absolute top-4 right-4 bg-black/70 rounded-full p-2">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
-              <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
-            </svg>
-          </div>
-        )}
+        {/* Music toggle button - positioned over the ship but with controlled size */}
+        <div 
+          className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-24 h-24 cursor-pointer"
+          // onClick={toggleMusic}
+        >
+          {/* Visual indicator for music state */}
+          {isPlaying && (
+            <div className="absolute top-4 right-4 bg-black/70 rounded-full p-2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+              </svg>
+            </div>
+          )}
+        </div>
       </div>
 
       {/* Content */}
