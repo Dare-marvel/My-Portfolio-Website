@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import {
-  Anchor, Compass, MapPin, Skull,
+   Compass, MapPin, Skull,
   FlaskConical, Scroll, MessageSquare,
   Menu, X
 } from 'lucide-react';

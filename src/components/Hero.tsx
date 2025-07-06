@@ -1,5 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { Anchor, Compass } from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
 import shipImage from '../assets/black-pearl.png';
 import { loadFull } from "tsparticles";
 import { tsParticles } from "@tsparticles/engine";

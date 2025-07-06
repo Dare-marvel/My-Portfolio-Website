@@ -1,4 +1,3 @@
-import React from 'react';
 import { Scroll, Feather, Compass, Anchor } from 'lucide-react';
 import { Avatar, AvatarImage, AvatarFallback } from './ui/avatar';
 import pirateShip from '../assets/pirate-ship.png';

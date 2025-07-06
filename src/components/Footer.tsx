@@ -1,5 +1,4 @@
 
-import React from 'react';
 import { Github, Linkedin, Twitter, Mail, Heart, BookA, Shirt } from 'lucide-react';
 
 import compass from '../assets/compass.jpg';

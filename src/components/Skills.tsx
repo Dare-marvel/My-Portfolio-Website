@@ -1,5 +1,4 @@
 
-import React from 'react';
 import { Code, Database, PenTool, Globe, ChartArea, Brain } from 'lucide-react';
 import { Badge } from './ui/badge';
 

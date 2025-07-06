@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import splashSound from '../assets/Sound/water-splash.mp3';
-import { Send, Mail, MessageSquare, User, AlertTriangle, Anchor, Skull } from 'lucide-react';
+import { Send, Mail, MessageSquare, User, Anchor, Skull } from 'lucide-react';
 import rumBottle from '../assets/rum-bottle.png';
 import swordMap from '../assets/sword-map.png';
 import toast from 'react-hot-toast';

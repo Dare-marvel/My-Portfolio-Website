@@ -1,6 +1,6 @@
 
-import React, { useState } from 'react';
-import { Skull, Github, ExternalLink, Bookmark, Key, Sparkles } from 'lucide-react';
+import { useState } from 'react';
+import { Github, ExternalLink, Bookmark, Sparkles } from 'lucide-react';
 import compass from '../assets/pirate-compass.png';
 import davyOpen from '../assets/davy-chest-open.png'
 import davyClosed from '../assets/davy-chest-closed.png'
@@ -9,6 +9,8 @@ import sangrah from '../assets/Projects/InventoryManagement2.jpg'
 import codeRed from "../assets/Projects/CodeRed.jpg"
 import crackopoly from '../assets/Projects/Crackopoly.jpg'
 import davyKey from '../assets/davy-jones-key.png'
+import codeEditor from '../assets/Projects/codeEditor.png'
+import notesGalaxy from '../assets/Projects/notesGalaxy.png'
 
 const projects = [
   {
@@ -23,6 +25,26 @@ const projects = [
   },
   {
     id: 2,
+    title: "NotesGalaxy - All Engineering Notes at one Place ",
+    description: " Notes-Galaxy, Your one-stop destination for all engineering notes!  Dive into well-organized, comprehensive content for a smoother learning journey. Join our community, share insights, and stay updated with the latest trends.",
+    image: notesGalaxy,
+    tags: ["Community Platform", "Engineering Notes", "Gamified Learning Platform"],
+    github: "https://github.com/Dare-marvel/NotesGalaxy-Engineering-Made-Effortless",
+    demo: "https://notes-galaxy.vercel.app/",
+    bgPosition: "50% 36%"
+  },
+  {
+    id: 3,
+    title: "CodeEditor with Judge0",
+    description: "A powerful, modern code editor featuring multi-language support with syntax highlighting, real-time code execution, interactive test case management, and a clean UI with theme switching. Designed for seamless problem-solving, it includes a dedicated problem description panel and comprehensive output handling, making it ideal for developers.",
+    image: codeEditor,
+    tags: ["Code Execution", "Compiling", "Judge0", "ReactJSX"],
+    github: "https://github.com/Dare-marvel/Code-Editor-with-Monaco-React-and-Judge-0-API",
+    demo: "https://www.youtube.com/watch?v=QOmc3u1Aev8",
+    bgPosition: "top"
+  },
+  {
+    id: 4,
     title: "Sangrah - Inventory Management System",
     description: "Built an intuitive interface for vendors and companies to manage inventory efficiently, with sales and product analytics, and low stock alerts. Also created a marketplace for companies to list products and integrated Stripe Payment Gateway for seamless transactions.Built with React.js ,Node.js, Material UI, Cheerio, Stripe ,Firebase.",
     image: sangrah,
@@ -32,7 +54,7 @@ const projects = [
     bgPosition: "50% 33%"
   },
   {
-    id: 3,
+    id: 5,
     title: "Code Red - A Story Based Game",
     description: "Developed an interactive 3D model of a bomb with functional buttons and customizable wire colors, enhancing user engagement through realistic simulation features, and created a human vs. AI Connect 4 game utilizing the Minimax algorithm.Built with React.js, NodesJS, Redux, React Three Fiber,React three drei, React-terminal",
     image: codeRed,
@@ -42,7 +64,7 @@ const projects = [
     bgPosition: "50% 30%"
   },
   {
-    id: 4,
+    id: 6,
     title: "Crackopoly - Monopoly with a twist",
     description: "Developed an interactive Monopoly game featuring real-time multiplayer capabilities, room joining, chat functionality, game history, and a leaderboard. The game introduces a unique twist where players buy properties by solving riddles, adding a challenging element to the classic game. Built with React.js,Node.js, Socket.io",
     image: crackopoly,

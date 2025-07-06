@@ -1,6 +1,6 @@
 
-import React, { useState } from 'react';
-import { MapPin, Anchor, Clock, ExternalLink, BadgeCheck } from 'lucide-react';
+import { useState } from 'react';
+import { Anchor, Clock, ExternalLink, BadgeCheck } from 'lucide-react';
 import ibmLogo from '../assets/Company/ibm-logo.png';
 import rcfLogo from '../assets/Company/rcf.png';
 import oracleLogo from '../assets/Company/oracle-logo.svg';
