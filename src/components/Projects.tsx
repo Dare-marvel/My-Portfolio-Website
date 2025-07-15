@@ -20,7 +20,7 @@ const projects = [
     image: aarogyaData,
     tags: ["NLP", "Image Classification", "Prediction", "QR Encoding"],
     github: "https://github.com/Dare-marvel/AarogyaData-Enhancing-Healthcare-Access",
-    demo: "",
+    demo: "https://www.youtube.com/watch?v=6TMEZ8hVFUY",
     bgPosition: "top"
   },
   {
@@ -29,7 +29,7 @@ const projects = [
     description: " Notes-Galaxy, Your one-stop destination for all engineering notes!  Dive into well-organized, comprehensive content for a smoother learning journey. Join our community, share insights, and stay updated with the latest trends.",
     image: notesGalaxy,
     tags: ["Community Platform", "Engineering Notes", "Gamified Learning Platform"],
-    github: "https://github.com/Dare-marvel/NotesGalaxy-Engineering-Made-Effortless",
+    // github: "https://github.com/Dare-marvel/NotesGalaxy-Engineering-Made-Effortless",
     demo: "https://notes-galaxy.vercel.app/",
     bgPosition: "50% 36%"
   },
@@ -127,14 +127,17 @@ const Projects = () => {
               >
                 <div className="absolute inset-0 bg-pirate-ocean-deep/60 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
                   <div className="flex gap-4">
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-2 bg-pirate-wood-dark rounded-full hover:bg-pirate-wood text-pirate-parchment transition-colors duration-300"
-                    >
-                      <Github className="h-6 w-6" />
-                    </a>
+                    {project.github && (
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-2 bg-pirate-wood-dark rounded-full hover:bg-pirate-wood text-pirate-parchment transition-colors duration-300"
+                      >
+                        <Github className="h-6 w-6" />
+                      </a>
+                    )
+                    }
                     {project.demo && (
                       <a
                         href={project.demo}
