@@ -121,7 +121,7 @@ export default {
 			backgroundImage: {
 				'parchment': "url('/assets/parchment.webp')",
 				'ocean': "url('/assets/Ocean.webp')",
-				'wood': "url('/assets/wood.jpg')",
+				'wood': "url('/assets/wood.webp')",
 			},
 		}
 	},

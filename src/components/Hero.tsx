@@ -1,19 +1,19 @@
-import { useEffect, useRef, useState } from 'react';
-import shipImage from '../assets/black-pearl.png';
+import { useEffect, useRef } from 'react';
+import shipImage from '../assets/black-pearl.webp';
 import { loadFull } from "tsparticles";
 import { tsParticles } from "@tsparticles/engine";
 import starryNightConfig from './starryNightConfig';
-import rudder from '../assets/rudder.png';
+import rudder from '../assets/rudder.webp';
 import waveSrc from "../assets/wave.svg";
-import pirateMusic from "../assets/Sound/pirate_music.mp3";
+// import pirateMusic from "../assets/Sound/pirate_music.mp3";
 
 const Hero = () => {
   const compassRef = useRef<HTMLDivElement>(null);
   const particlesContainerRef = useRef<HTMLDivElement>(null);
   const rudderRef = useRef<HTMLImageElement>(null);
   const shipRef = useRef<HTMLDivElement>(null);
-  const [isPlaying, setIsPlaying] = useState(false);
-  const audioRef = useRef<HTMLAudioElement | null>(null);
+  // const [isPlaying, setIsPlaying] = useState(false);
+  // const audioRef = useRef<HTMLAudioElement | null>(null);
 
   // For rudder dragging
   const isDragging = useRef(false);
@@ -31,15 +31,15 @@ const Hero = () => {
     });
 
     // Initialize audio
-    audioRef.current = new Audio(pirateMusic);
-    audioRef.current.loop = true;
+    // audioRef.current = new Audio(pirateMusic);
+    // audioRef.current.loop = true;
 
-    return () => {
-      if (audioRef.current) {
-        audioRef.current.pause();
-        audioRef.current = null;
-      }
-    };
+    // return () => {
+    //   if (audioRef.current) {
+    //     audioRef.current.pause();
+    //     audioRef.current = null;
+    //   }
+    // };
   }, []);
 
   useEffect(() => {
@@ -92,20 +92,20 @@ const Hero = () => {
     };
   }, []);
 
-  const toggleMusic = async () => {
-    if (!audioRef.current) return;
+  // const toggleMusic = async () => {
+  //   if (!audioRef.current) return;
     
-    try {
-      if (isPlaying) {
-        await audioRef.current.pause();
-      } else {
-        await audioRef.current.play();
-      }
-      setIsPlaying(!isPlaying);
-    } catch (error) {
-      console.error("Audio playback failed:", error);
-    }
-  };
+  //   try {
+  //     if (isPlaying) {
+  //       await audioRef.current.pause();
+  //     } else {
+  //       await audioRef.current.play();
+  //     }
+  //     setIsPlaying(!isPlaying);
+  //   } catch (error) {
+  //     console.error("Audio playback failed:", error);
+  //   }
+  // };
 
   return (
     <section id="hero" className="relative min-h-screen flex flex-col items-center justify-center pt-15 pb-12 overflow-hidden">
@@ -127,14 +127,14 @@ const Hero = () => {
           // onClick={toggleMusic}
         >
           {/* Visual indicator for music state */}
-          {isPlaying && (
+          {/* {isPlaying && (
             <div className="absolute top-4 right-4 bg-black/70 rounded-full p-2">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
                 <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
               </svg>
             </div>
-          )}
+          )} */}
         </div>
       </div>
 

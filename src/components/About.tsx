@@ -1,10 +1,10 @@
 import { Scroll, Feather, Compass, Anchor } from 'lucide-react';
 import { Avatar, AvatarImage, AvatarFallback } from './ui/avatar';
-import pirateShip from '../assets/pirate-ship.png';
-import adwaitProfile from '../assets/adwait-profile.jpg';
-import flag from '../assets/flag.png'
-import map from '../assets/map.png'
-import parchmentTexture from '../assets/parchment-texture.png'
+import pirateShip from '../assets/pirate-ship.webp';
+import adwaitProfile from '../assets/adwait-profile.webp';
+import flag from '../assets/flag.webp'
+import map from '../assets/map.webp'
+import parchmentTexture from '../assets/parchment-texture.webp'
 import Resume from '../assets/Resume/Adwait_Purao_Resume.pdf'
 
 const About = () => {

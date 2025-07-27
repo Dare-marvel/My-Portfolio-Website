@@ -1,10 +1,10 @@
 
 import { useState } from 'react';
 import { Anchor, Clock, ExternalLink, BadgeCheck } from 'lucide-react';
-import ibmLogo from '../assets/Company/ibm-logo.png';
-import rcfLogo from '../assets/Company/rcf.png';
+import ibmLogo from '../assets/Company/ibm-logo.svg';
+import rcfLogo from '../assets/Company/rcf.svg';
 import oracleLogo from '../assets/Company/oracle-logo.svg';
-import ship from '../assets/ship.png'
+import ship from '../assets/ship.webp'
 
 const experiences = [
   {

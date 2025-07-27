@@ -1,7 +1,7 @@
 
 import { Github, Linkedin, Twitter, Mail, Heart, BookA, Shirt } from 'lucide-react';
 
-import compass from '../assets/compass.jpg';
+import compass from '../assets/compass.webp';
 
 const Footer = () => {
   return (

@@ -4,7 +4,7 @@ import {
   FlaskConical, Scroll, MessageSquare,
   Menu, X
 } from 'lucide-react';
-import medallion from '../assets/medallion.png';
+import medallion from '../assets/medallion.webp';
 
 const navItems = [
   { id: 'hero', label: 'Home', icon: <Compass className="h-5 w-5 text-pirate-gold" /> },

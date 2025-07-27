@@ -1,16 +1,16 @@
 
 import { useState } from 'react';
 import { Github, ExternalLink, Bookmark, Sparkles } from 'lucide-react';
-import compass from '../assets/pirate-compass.png';
-import davyOpen from '../assets/davy-chest-open.png'
-import davyClosed from '../assets/davy-chest-closed.png'
-import aarogyaData from '../assets/Projects/AarogyaData.jpg'
-import sangrah from '../assets/Projects/InventoryManagement2.jpg'
-import codeRed from "../assets/Projects/CodeRed.jpg"
-import crackopoly from '../assets/Projects/Crackopoly.jpg'
-import davyKey from '../assets/davy-jones-key.png'
-import codeEditor from '../assets/Projects/codeEditor.png'
-import notesGalaxy from '../assets/Projects/notesGalaxy.png'
+import compass from '../assets/pirate-compass.webp';
+import davyOpen from '../assets/davy-chest-open.webp'
+import davyClosed from '../assets/davy-chest-closed.webp'
+import aarogyaData from '../assets/Projects/AarogyaData.webp'
+import sangrah from '../assets/Projects/InventoryManagement2.webp'
+import codeRed from "../assets/Projects/CodeRed.webp"
+import crackopoly from '../assets/Projects/Crackopoly.webp'
+import davyKey from '../assets/davy-jones-key.webp'
+import codeEditor from '../assets/Projects/codeEditor.webp'
+import notesGalaxy from '../assets/Projects/notesGalaxy.webp'
 
 const projects = [
   {
