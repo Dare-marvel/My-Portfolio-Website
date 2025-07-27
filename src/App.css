@@ -38,6 +38,19 @@
   padding: 2em;
 }
 
-.read-the-docs {
-  color: #888;
+.fog {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 150vw;
+  height: 150vh;
+  background: radial-gradient(circle, rgba(255,255,255,0.1), transparent 70%);
+  animation: fogMove 60s linear infinite;
+  z-index: -1;
+  pointer-events: none;
+}
+
+@keyframes fogMove {
+  0% { transform: translate(-10%, -10%); }
+  100% { transform: translate(10%, 10%); }
 }
