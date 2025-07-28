@@ -104,11 +104,11 @@
   transition: height 1s ease-out;
 }
 
-.ocean-bg {
+/* .ocean-bg {
   background-image: url('../public/assets/Ocean.webp');
   background-size: cover;
   background-position: center;
-}
+} */
 
 .wood-bg {
   background-image: url('../public/assets/black-wood.webp');
