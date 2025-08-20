@@ -21,7 +21,7 @@ const Footer = () => {
             <a href="https://github.com/Dare-marvel/" target="_blank" rel="noopener noreferrer" className="hover:text-pirate-gold transition-colors duration-300">
               <Github className="h-6 w-6" />
             </a>
-            <a href="https://www.linkedin.com/in/adwait-p-04a4a222a/" target="_blank" rel="noopener noreferrer" className="hover:text-pirate-gold transition-colors duration-300">
+            <a href="https://www.linkedin.com/in/adwait-purao-04a4a222a/" target="_blank" rel="noopener noreferrer" className="hover:text-pirate-gold transition-colors duration-300">
               <Linkedin className="h-6 w-6" />
             </a>
             <a href="https://x.com/puraoadwait" target="_blank" rel="noopener noreferrer" className="hover:text-pirate-gold transition-colors duration-300">
